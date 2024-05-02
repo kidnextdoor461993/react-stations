@@ -1,6 +1,6 @@
 {
   "name": "react-stations",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This package will reduce all complexibility of Redux with singleton pattern.",
   "main": "./dist/index.js",
   "scripts": {
