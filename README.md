@@ -15,6 +15,7 @@ Anti redux complexibility
     ![Alt text](/idea.svg?raw=true "React stations idea")
 
 4. <h3>How to use?</h3>
+
     - __FIRST__: Initialize your singleton station (Example: ```auth.station.ts```)
 
     ``` typescript
@@ -268,7 +269,7 @@ Anti redux complexibility
 
     ```
 
-    - FINAL: Enjoy your station and inject into your component(s) want to listen state change(s)
+    - __FINAL__: Enjoy your station and inject into your component(s) want to listen state change(s)
 5. <h3>Advanced for class component(s):</h3>
     With class components, to decrease initialize lines when you have multiple stations in each component file.
 
