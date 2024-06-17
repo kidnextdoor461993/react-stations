@@ -58,8 +58,8 @@ Anti redux complexibility
             // Maybe use for loading effect on your component
             // when component load in the same time verify user token
             this.setState({
-                status: "INITIALIZING";
-                token: undefined;
+                status: "INITIALIZING",
+                token: undefined
             });
         }
 
@@ -310,7 +310,7 @@ Anti redux complexibility
     }
 
 
-    export default class YourComponent extends Component<{}, {}> {
+    export default class YourComponent extends Component<TProps, TState> {
 
         constructor(
             props: TProps

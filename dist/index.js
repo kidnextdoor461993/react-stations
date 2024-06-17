@@ -5,10 +5,8 @@ exports.Station = void 0;
  * Parent station
  */
 class Station {
-    constructor() {
-        this._listeners = new Map();
-        this.state = Object();
-    }
+    _listeners = new Map();
+    state = Object();
     /**
      * Subcribe station by listener(s)
      * @param args
@@ -54,9 +52,15 @@ class Station {
     setState(args) {
         Object.assign(this.state, args);
         try {
-            for (const [key] of this._listeners.entries()) {
-                key(this.$state);
+            if (this._listeners.size < 1) {
+                return;
             }
+            const entries = this._listeners.entries();
+            const keys = [];
+            for (const [key] of entries) {
+                keys.push(key);
+            }
+            Promise.allSettled(keys);
         }
         catch (error) {
             console.error(error);
@@ -66,7 +70,7 @@ class Station {
      * State GETTER
      */
     get $state() {
-        return Object.assign({}, this.state);
+        return { ...this.state };
     }
 }
 exports.Station = Station;

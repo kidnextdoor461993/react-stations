@@ -77,9 +77,18 @@ export class Station<TState extends {}> {
         Object.assign(this.state, args);
 
         try {
-            for (const [key] of this._listeners.entries()) {
-                key(this.$state);
+            if (this._listeners.size < 1) {
+                return;
             }
+
+            const entries = this._listeners.entries();
+            const keys: TListener<TState>[] = [];
+
+            for (const [key] of entries) {
+                keys.push(key);
+            }
+
+            Promise.allSettled(keys);
         } catch (error) {
             console.error(error);
         }
