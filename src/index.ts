@@ -88,7 +88,7 @@ export class Station<TState extends {}> {
                 keys.push(key);
             }
 
-            Promise.allSettled(keys);
+            Promise.allSettled(keys.map(key => key(this.$state)));
         } catch (error) {
             console.error(error);
         }

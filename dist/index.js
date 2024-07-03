@@ -60,7 +60,7 @@ class Station {
             for (const [key] of entries) {
                 keys.push(key);
             }
-            Promise.allSettled(keys);
+            Promise.allSettled(keys.map(key => key(this.$state)));
         }
         catch (error) {
             console.error(error);
